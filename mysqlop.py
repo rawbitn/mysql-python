@@ -17,7 +17,10 @@ def mysqlop(db_parameters,command):
         print(str(datetime.datetime.now()) + ": FAILD: " + command)
         exit()
     print(str(datetime.datetime.now()) + ": EXCECUTED: " + command)
-    dbresult = dbcursor.fetchall()
+    try:
+        dbresult = dbcursor.fetchall()
+    except:
+        dbresult = ""
     db.close()
     return dbresult
 
